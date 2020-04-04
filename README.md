@@ -29,31 +29,31 @@ To end the program, simply press the Quit button that appeared after startup:
 ![](images/step3.png)
 
 ## Technical Description
-###### **Trafiklab API**
+#### **Trafiklab API**
 The real time departure information is retrieved through the API SL Realtidsinformation 4, provided by Trafiklab.se.
 
 Mainly five different files are involved in this program:
-###### **1. DepartureTableApplication.py**
+#### **1. DepartureTableApplication.py**
 This is the main file responsible for fetching the latest departure data from the Trafiklab API, and writing this data to the excell sheet sl realtid excell.xlsx. Running this file is what starts the entire application.
-###### **2. sl realtid excell.xlsx**
+#### **2. sl realtid excell.xlsx**
 This document holds the latest departure information along with all formatting of the departure tables that are
 displayed in powerpoint.
-###### **3. sl realtid ppt.pptm**
+#### **3. sl realtid ppt.pptm**
 This powerpoint contains only one slide with a chart linked to sl realtid excell.xlsx. When the excell sheet is modified, the link just have to be updated to mirror the current excell sheet.
-###### **4. slideshow.pptm**
+#### **4. slideshow.pptm**
 This is the final slideshow after merging the target presentation in the folder Powerpoint, with the sl realtid ppt slide
-###### **5. user parameters.yaml**
+#### **5. user parameters.yaml**
 YAML file where some parameters can be modified. Such as update frequency, time window for departures, API
 Key etc.
 
 
 Three different macros belonging to sl realtid ppt.pptm are running in the background:
 
-###### **1. Module1:OnSlideShowPageChange()**
+##### **1. Module1:OnSlideShowPageChange()**
 This function is called automatically every time the slide is changed during a slideshow. It checks which slide the show is currently on. If it is the second last slide (the slide before the departure table), it updates the link to excell to make sure the departure table has the latest information. This typically takes about 6 seconds before the slideshow can move on to the last slide.
-###### **2. Module4:mergePresentations()**
+##### **2. Module4:mergePresentations()**
 This function locates the target presentation in the Powerpoint folder and merges it with sl realtid.pptm to create the new file slideshow.pptm
-###### **3. Module3:slideshow()**
+##### **3. Module3:slideshow()**
 Set the powerpoint to loop through the slides after a certain time, and starts the slideshow.
 ![](images/code_flowchart.png)
 
