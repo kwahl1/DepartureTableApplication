@@ -1,0 +1,9 @@
+realtidsinfo:
+    time_window_bus: "30" # visa alla bussar under kommande X minuter
+    time_window_train: "40" # visa alla pendeltåg under kommande X minuter
+    update_time: "20" # hämta realtidsinfo var X:e sekund
+
+site_id: {"Kolonnvägen":"3456", "Solna Station":"9509"}
+working_directory: "C:\\DepartureTableApplication"
+max_rows: "25" # antal rader som är länkade från excell till powerpoint
+key_id: "12345" #API Key
